@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import ParticleNetwork from "./ParticleNetwork";
 
 const STATS = [
-  { value: "500K+", label: "Vulnerabilities Found" },
-  { value: "1,200+", label: "Orgs Scanned" },
-  { value: "50+", label: "Algorithms Analyzed" },
-  { value: "Y2Q", label: "Score Certified" },
+  { value: "FIPS 203–205", label: "ML-KEM · ML-DSA · SLH-DSA" },
+  { value: "Air-gapped", label: "Source never leaves your environment" },
+  { value: "Sovereign Receipt", label: "Tamper-evident audit artefact" },
+  { value: "Y2Q Risk Score", label: "Per-asset, per-algorithm rating" },
 ];
 
 const fadeUp = {

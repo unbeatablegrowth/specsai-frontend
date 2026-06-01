@@ -1,60 +1,5 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { motion, useInView } from "framer-motion";
-
-interface Metric {
-  end: number;
-  suffix: string;
-  prefix?: string;
-  label: string;
-  sub: string;
-}
-
-const METRICS: Metric[] = [
-  { end: 500000, suffix: "+", label: "Vulnerabilities Found", sub: "Across all scans" },
-  { end: 1200, suffix: "+", label: "Orgs Scanned", sub: "Across 40+ countries" },
-  { end: 99.7, suffix: "%", label: "Detection Accuracy", sub: "Independently verified" },
-  { end: 3, suffix: "hrs", label: "Avg. Time to Receipt", sub: "From scan to Sovereign Receipt" },
-];
-
-function Counter({ metric }: { metric: Metric }) {
-  const [count, setCount] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-
-  useEffect(() => {
-    if (!inView) return;
-    const duration = 1800;
-    const start = performance.now();
-    const end = metric.end;
-    const raf = (now: number) => {
-      const elapsed = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
-      setCount(parseFloat((end * ease).toFixed(end < 10 ? 1 : 0)));
-      if (progress < 1) requestAnimationFrame(raf);
-    };
-    requestAnimationFrame(raf);
-  }, [inView, metric.end]);
-
-  const display =
-    metric.end < 10 ? count.toFixed(1) : Math.round(count).toLocaleString();
-
-  return (
-    <div ref={ref} className="text-center">
-      <div
-        className="font-display font-bold gradient-text"
-        style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)" }}
-      >
-        {metric.prefix ?? ""}
-        {display}
-        {metric.suffix}
-      </div>
-      <div className="mt-2 text-base font-semibold text-white">{metric.label}</div>
-      <div className="mt-1 text-sm text-slate-500">{metric.sub}</div>
-    </div>
-  );
-}
+import { motion } from "framer-motion";
 
 const THREAT_ITEMS = [
   {
@@ -63,8 +8,8 @@ const THREAT_ITEMS = [
     color: "#f87171",
   },
   {
-    label: "NIST Deadline: 2030",
-    desc: "NIST mandates migration away from RSA and ECC by 2030. Many large organisations will take 5–7 years to fully transition.",
+    label: "NIST IR 8547: Deprecation 2030, Disallowed 2035",
+    desc: "NIST IR 8547 calls for deprecating quantum-vulnerable algorithms (RSA, ECC, DH) by 2030 and disallowing them by 2035. Federal procurement and regulated industries are already flowing that pressure downstream to private firms.",
     color: "#fbbf24",
   },
   {
@@ -106,21 +51,6 @@ export default function MetricsSection() {
             <span className="gradient-text">R2PQ</span>
           </h2>
         </motion.div>
-
-        {/* Metrics */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.5 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-10 mb-16"
-        >
-          {METRICS.map((m) => (
-            <Counter key={m.label} metric={m} />
-          ))}
-        </motion.div>
-
-        <div className="h-line mb-14" />
 
         {/* Threat context cards */}
         <div className="grid md:grid-cols-3 gap-5">

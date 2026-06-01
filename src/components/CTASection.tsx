@@ -49,7 +49,7 @@ export default function CTASection() {
           </div>
 
           <p className="mt-7 text-xs text-slate-600">
-            Read-only · No agents installed · Sovereign Receipt issued on completion · SOC 2 compliant
+            Read-only · No agents installed · Findings-only · Sovereign Receipt issued on completion
           </p>
         </motion.div>
       </div>
