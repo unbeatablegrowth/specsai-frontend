@@ -6,13 +6,13 @@ const STEPS = [
     num: "01",
     title: "Connect",
     description:
-      "Point R2PQ at your infrastructure — provide IP ranges, domains, API endpoints, or CI/CD pipelines. No agents required. Read-only, zero footprint.",
+      "Point R2PQ at your codebase — a Git repo or local source tree. No agents required. Read-only, zero footprint.",
   },
   {
     num: "02",
     title: "Scan",
     description:
-      "Our engine enumerates every cryptographic primitive in use: TLS handshakes, certificate chains, SSH key types, JWT signing algorithms, and library dependencies — catalogued and risk-ranked.",
+      "Our engine scans your source and config files for quantum-vulnerable algorithms — RSA, ECDSA/ECDH, SHA-1, 3DES, MD5 — catalogued and risk-ranked.",
   },
   {
     num: "03",

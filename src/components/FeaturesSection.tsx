@@ -8,9 +8,9 @@ const FEATURES = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
       </svg>
     ),
-    title: "Infrastructure Scanner",
+    title: "Codebase Crypto Scanner",
     description:
-      "Deep-scan TLS certificates, API endpoints, SSH keys, code dependencies, and HSMs for RSA, ECC, and DH — the algorithms quantum computers will break first.",
+      "Scans source and config files for quantum-vulnerable cryptography — RSA, ECDSA/ECDH, SHA-1, 3DES, MD5 — the algorithms quantum computers break first.",
   },
   {
     icon: (
@@ -20,7 +20,7 @@ const FEATURES = [
     ),
     title: "Y2Q Score",
     description:
-      "Your proprietary Years-to-Quantum risk score — a single number that quantifies how exposed your cryptographic surface is as quantum computing power grows. Updated continuously.",
+      "Your proprietary Years-to-Quantum risk score — a single number that quantifies your codebase's cryptographic exposure as quantum computing power grows. Recomputed on every scan.",
   },
   {
     icon: (
@@ -59,9 +59,9 @@ const FEATURES = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
       </svg>
     ),
-    title: "Continuous Monitoring",
+    title: "Trend Tracking (Roadmap)",
     description:
-      "R2PQ watches your infrastructure 24/7 for newly deployed quantum-vulnerable patterns, certificate renewals with weak algorithms, and drift from your approved crypto baseline.",
+      "Re-scan your codebase over time to catch newly introduced quantum-vulnerable patterns and measure drift from your approved cryptographic baseline.",
   },
 ];
 
@@ -88,7 +88,7 @@ export default function FeaturesSection() {
             className="font-display font-bold text-white leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
           >
-            Six Layers of{" "}
+            Six Capabilities for{" "}
             <span className="gradient-text">Quantum Defence</span>
           </h2>
           <p className="mt-4 text-slate-500 max-w-xl mx-auto text-base leading-relaxed">

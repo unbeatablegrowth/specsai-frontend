@@ -26,7 +26,7 @@ export default function CTASection() {
             className="font-display font-bold text-white leading-tight mb-5"
             style={{ fontSize: "clamp(2rem, 5vw, 3.4rem)" }}
           >
-            Is Your Infrastructure <br />
+            Is Your Codebase <br />
             <span className="gradient-text">Quantum-Ready?</span>
           </h2>
 

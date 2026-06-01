@@ -1,10 +1,8 @@
 "use client";
 
 const LINKS = {
-  Product: ["Scanner", "Y2Q Score", "Sovereign Receipts", "Merkle Roots", "Pricing"],
-  Company: ["About", "Blog", "Careers", "Press"],
-  Resources: ["Docs", "PQC Guide", "API Reference", "NIST PQC FAQ"],
-  Legal: ["Privacy", "Terms", "Security", "Compliance"],
+  Product: ["Scanner", "Y2Q Score", "Sovereign Receipts", "Pricing"],
+  Legal: ["Privacy", "Terms"],
 };
 
 const SOCIALS = [
@@ -41,7 +39,7 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-white/[0.05] bg-[rgba(3,3,10,0.6)]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="col-span-2">
             <a href="/" className="font-display font-bold text-2xl gradient-text">
@@ -51,7 +49,7 @@ export default function Footer() {
               Rotate to Post-Quantum
             </p>
             <p className="mt-3 text-slate-500 text-sm leading-relaxed max-w-xs">
-              Infrastructure vulnerability scanning for the post-quantum era.
+              Codebase cryptography scanning for the post-quantum era.
               Know your exposure. Rotate with confidence.
             </p>
             <div className="mt-5 flex gap-3">
@@ -91,7 +89,7 @@ export default function Footer() {
             © {new Date().getFullYear()} R2PQ. All rights reserved.
           </p>
           <p className="text-xs text-slate-700 font-mono">
-            NIST FIPS 203 · 204 · 205 Compliant Playbooks
+            Aligned with NIST IR 8547 and FIPS 203/204/205
           </p>
         </div>
       </div>
