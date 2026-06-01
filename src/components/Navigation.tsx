@@ -56,7 +56,7 @@ export default function Navigation() {
             Sign In
           </a>
           <a href="#contact" className="btn-primary text-[0.85rem] py-2 px-5">
-            Get Started
+            Free Scan
           </a>
         </div>
 
@@ -107,7 +107,7 @@ export default function Navigation() {
               ))}
               <div className="h-line" />
               <a href="#contact" className="btn-primary text-center text-sm">
-                Get Started
+                Free Scan
               </a>
             </div>
           </motion.div>

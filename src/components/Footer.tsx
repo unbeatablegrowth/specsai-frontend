@@ -1,11 +1,10 @@
 "use client";
-import { motion } from "framer-motion";
 
 const LINKS = {
-  Product: ["Features", "Pricing", "Changelog", "Roadmap"],
+  Product: ["Scanner", "Y2Q Score", "Sovereign Receipts", "Merkle Roots", "Pricing"],
   Company: ["About", "Blog", "Careers", "Press"],
-  Resources: ["Docs", "API Reference", "Guides", "Community"],
-  Legal: ["Privacy", "Terms", "Security", "Cookies"],
+  Resources: ["Docs", "PQC Guide", "API Reference", "NIST PQC FAQ"],
+  Legal: ["Privacy", "Terms", "Security", "Compliance"],
 };
 
 const SOCIALS = [
@@ -48,11 +47,13 @@ export default function Footer() {
             <a href="/" className="font-display font-bold text-2xl gradient-text">
               R2PQ
             </a>
-            <p className="mt-3 text-slate-500 text-sm leading-relaxed max-w-xs">
-              Next-generation AI intelligence for ambitious teams building the
-              future.
+            <p className="mt-1 text-[0.65rem] font-mono text-slate-600 tracking-widest uppercase">
+              Rotate to Post-Quantum
             </p>
-            {/* Socials */}
+            <p className="mt-3 text-slate-500 text-sm leading-relaxed max-w-xs">
+              Infrastructure vulnerability scanning for the post-quantum era.
+              Know your exposure. Rotate with confidence.
+            </p>
             <div className="mt-5 flex gap-3">
               {SOCIALS.map((s) => (
                 <a
@@ -67,17 +68,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Link columns */}
           {Object.entries(LINKS).map(([cat, items]) => (
             <div key={cat}>
               <h4 className="font-semibold text-white text-sm mb-4">{cat}</h4>
               <ul className="space-y-2.5">
                 {items.map((item) => (
                   <li key={item}>
-                    <a
-                      href="#"
-                      className="text-sm text-slate-500 hover:text-slate-300 transition-colors duration-150"
-                    >
+                    <a href="#" className="text-sm text-slate-500 hover:text-slate-300 transition-colors duration-150">
                       {item}
                     </a>
                   </li>
@@ -93,8 +90,8 @@ export default function Footer() {
           <p className="text-xs text-slate-600">
             © {new Date().getFullYear()} R2PQ. All rights reserved.
           </p>
-          <p className="text-xs text-slate-700">
-            Built with precision · Powered by AI
+          <p className="text-xs text-slate-700 font-mono">
+            NIST FIPS 203 · 204 · 205 Compliant Playbooks
           </p>
         </div>
       </div>

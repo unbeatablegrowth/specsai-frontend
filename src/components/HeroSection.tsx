@@ -3,10 +3,10 @@ import { motion } from "framer-motion";
 import ParticleNetwork from "./ParticleNetwork";
 
 const STATS = [
-  { value: "10K+", label: "Active Users" },
-  { value: "150+", label: "Countries" },
-  { value: "99.9%", label: "Uptime SLA" },
-  { value: "$2B+", label: "Value Processed" },
+  { value: "500K+", label: "Vulnerabilities Found" },
+  { value: "1,200+", label: "Orgs Scanned" },
+  { value: "50+", label: "Algorithms Analyzed" },
+  { value: "Y2Q", label: "Score Certified" },
 ];
 
 const fadeUp = {
@@ -27,19 +27,10 @@ export default function HeroSection() {
       {/* Particle canvas */}
       <ParticleNetwork />
 
-      {/* Radial glow blobs */}
-      <div
-        className="glow-blob w-[700px] h-[600px] bg-cyan-500/10 -top-40 left-1/2 -translate-x-1/2"
-        style={{ zIndex: 1 }}
-      />
-      <div
-        className="glow-blob w-[500px] h-[500px] bg-violet-600/10 top-1/3 -right-40"
-        style={{ zIndex: 1 }}
-      />
-      <div
-        className="glow-blob w-[400px] h-[400px] bg-blue-500/8 bottom-10 -left-20"
-        style={{ zIndex: 1 }}
-      />
+      {/* Ambient glows */}
+      <div className="glow-blob w-[700px] h-[600px] bg-cyan-500/10 -top-40 left-1/2 -translate-x-1/2" style={{ zIndex: 1 }} />
+      <div className="glow-blob w-[500px] h-[500px] bg-violet-600/10 top-1/3 -right-40" style={{ zIndex: 1 }} />
+      <div className="glow-blob w-[400px] h-[400px] bg-blue-500/8 bottom-10 -left-20" style={{ zIndex: 1 }} />
 
       {/* Content */}
       <div
@@ -55,7 +46,7 @@ export default function HeroSection() {
           className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-4 py-1.5 mb-7 text-xs font-medium text-cyan-300 backdrop-blur-sm"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse-slow" />
-          Introducing R2PQ — Next-Gen AI Intelligence
+          Post-Quantum Security Scanner — NIST PQC Ready
         </motion.div>
 
         {/* Main heading */}
@@ -67,8 +58,10 @@ export default function HeroSection() {
           className="font-display font-bold leading-[1.08] tracking-tight text-white"
           style={{ fontSize: "clamp(2.6rem, 6vw, 5rem)" }}
         >
-          Power Your Business With{" "}
-          <span className="gradient-text">AI Intelligence</span>
+          Find Your Quantum
+          <br />
+          Vulnerabilities{" "}
+          <span className="gradient-text">Before They Find You</span>
         </motion.h1>
 
         {/* Subheading */}
@@ -80,9 +73,12 @@ export default function HeroSection() {
           className="mt-6 max-w-2xl text-slate-400 leading-relaxed"
           style={{ fontSize: "clamp(1rem, 1.8vw, 1.2rem)" }}
         >
-          R2PQ delivers real-time AI insights, intelligent automation, and
-          seamless integrations — giving ambitious teams the edge they need to
-          move faster and scale further.
+          R2PQ — <strong className="text-slate-300">Rotate to Post-Quantum</strong> — scans your
+          entire infrastructure for cryptographic vulnerabilities, issues a{" "}
+          <span className="text-cyan-400">Y2Q Score</span>, and delivers{" "}
+          <span className="text-violet-400">Sovereign Receipts</span> backed by{" "}
+          <span className="text-blue-400">Merkle Root</span> verification — so
+          you can act before quantum computing makes today&apos;s encryption obsolete.
         </motion.p>
 
         {/* CTA row */}
@@ -94,19 +90,15 @@ export default function HeroSection() {
           className="mt-10 flex flex-wrap items-center justify-center gap-4"
         >
           <a href="#contact" className="btn-primary text-base px-7 py-3.5">
-            Start Building Free
+            Scan Your Infrastructure
           </a>
           <a href="#how-it-works" className="btn-ghost text-base px-7 py-3.5 flex items-center gap-2">
             <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-              <svg
-                className="w-3.5 h-3.5 translate-x-0.5"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
+              <svg className="w-3.5 h-3.5 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M8 5v14l11-7z" />
               </svg>
             </span>
-            Watch Demo
+            See How It Works
           </a>
         </motion.div>
 

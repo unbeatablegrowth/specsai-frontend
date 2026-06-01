@@ -15,12 +15,13 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "R2PQ — AI Intelligence Platform",
+  title: "R2PQ — Rotate to Post-Quantum",
   description:
-    "R2PQ delivers next-generation AI and automation solutions to help ambitious teams move faster, smarter, and at scale.",
+    "R2PQ scans your infrastructure for quantum-vulnerable cryptography, issues Y2Q Scores, Sovereign Receipts, and Merkle Root-verified reports — so you can rotate before it's too late.",
   openGraph: {
-    title: "R2PQ — AI Intelligence Platform",
-    description: "Next-generation AI solutions for ambitious builders.",
+    title: "R2PQ — Rotate to Post-Quantum",
+    description:
+      "Infrastructure vulnerability scanner for the post-quantum era. Y2Q Scores · Sovereign Receipts · Merkle Roots.",
     type: "website",
   },
 };

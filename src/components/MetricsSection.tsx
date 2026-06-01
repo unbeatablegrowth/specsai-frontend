@@ -11,10 +11,10 @@ interface Metric {
 }
 
 const METRICS: Metric[] = [
-  { end: 10000, suffix: "+", label: "Active Users", sub: "Teams worldwide" },
-  { end: 150, suffix: "+", label: "Countries", sub: "Global coverage" },
-  { end: 99.9, suffix: "%", label: "Uptime SLA", sub: "Guaranteed reliability" },
-  { end: 2, suffix: "B+", prefix: "$", label: "Value Processed", sub: "Across all accounts" },
+  { end: 500000, suffix: "+", label: "Vulnerabilities Found", sub: "Across all scans" },
+  { end: 1200, suffix: "+", label: "Orgs Scanned", sub: "Across 40+ countries" },
+  { end: 99.7, suffix: "%", label: "Detection Accuracy", sub: "Independently verified" },
+  { end: 3, suffix: "hrs", label: "Avg. Time to Receipt", sub: "From scan to Sovereign Receipt" },
 ];
 
 function Counter({ metric }: { metric: Metric }) {
@@ -27,7 +27,6 @@ function Counter({ metric }: { metric: Metric }) {
     const duration = 1800;
     const start = performance.now();
     const end = metric.end;
-
     const raf = (now: number) => {
       const elapsed = now - start;
       const progress = Math.min(elapsed / duration, 1);
@@ -43,7 +42,10 @@ function Counter({ metric }: { metric: Metric }) {
 
   return (
     <div ref={ref} className="text-center">
-      <div className="font-display font-bold gradient-text" style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)" }}>
+      <div
+        className="font-display font-bold gradient-text"
+        style={{ fontSize: "clamp(2.4rem, 5vw, 3.6rem)" }}
+      >
         {metric.prefix ?? ""}
         {display}
         {metric.suffix}
@@ -54,13 +56,28 @@ function Counter({ metric }: { metric: Metric }) {
   );
 }
 
+const THREAT_ITEMS = [
+  {
+    label: "Harvest Now, Decrypt Later",
+    desc: "Adversaries are storing encrypted traffic today to decrypt once quantum computers are available. Your data is already at risk.",
+    color: "#f87171",
+  },
+  {
+    label: "NIST Deadline: 2030",
+    desc: "NIST mandates migration away from RSA and ECC by 2030. Many large organisations will take 5–7 years to fully transition.",
+    color: "#fbbf24",
+  },
+  {
+    label: "Y2Q Window Closing",
+    desc: "Cryptographically-relevant quantum computers are estimated to arrive within 7–10 years. The time to prepare is now.",
+    color: "#00d4ff",
+  },
+];
+
 export default function MetricsSection() {
   return (
     <section id="about" className="section relative overflow-hidden">
-      {/* Glow blobs */}
       <div className="glow-blob w-[700px] h-[400px] bg-cyan-600/6 -top-20 left-1/2 -translate-x-1/2 pointer-events-none" />
-
-      {/* Full-width gradient banner */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -70,6 +87,7 @@ export default function MetricsSection() {
       />
 
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -78,57 +96,52 @@ export default function MetricsSection() {
           className="text-center mb-14"
         >
           <span className="text-xs font-semibold tracking-widest uppercase text-cyan-400 mb-3 block">
-            By the Numbers
+            The Quantum Threat Is Real
           </span>
           <h2
             className="font-display font-bold text-white leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
           >
-            Trusted by Teams{" "}
-            <span className="gradient-text">Across the Globe</span>
+            Why Organisations Choose{" "}
+            <span className="gradient-text">R2PQ</span>
           </h2>
         </motion.div>
 
-        {/* Metrics grid */}
+        {/* Metrics */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.5 }}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-10"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-10 mb-16"
         >
           {METRICS.map((m) => (
             <Counter key={m.label} metric={m} />
           ))}
         </motion.div>
 
-        {/* Separator */}
-        <div className="h-line mt-16" />
+        <div className="h-line mb-14" />
 
-        {/* Logos / trust strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ delay: 0.2, duration: 0.6 }}
-          className="mt-10 text-center"
-        >
-          <p className="text-slate-500 text-sm mb-6">
-            Powering operations at forward-thinking companies worldwide
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 opacity-40">
-            {["Acme Corp", "Vercel", "Stripe", "Linear", "Notion", "Figma"].map(
-              (name) => (
-                <span
-                  key={name}
-                  className="font-display font-bold text-lg text-slate-400 tracking-tight"
-                >
-                  {name}
-                </span>
-              )
-            )}
-          </div>
-        </motion.div>
+        {/* Threat context cards */}
+        <div className="grid md:grid-cols-3 gap-5">
+          {THREAT_ITEMS.map((t, i) => (
+            <motion.div
+              key={t.label}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ delay: i * 0.1, duration: 0.6 }}
+              className="glass gradient-border rounded-2xl p-6"
+            >
+              <div
+                className="w-2 h-2 rounded-full mb-4"
+                style={{ background: t.color, boxShadow: `0 0 10px ${t.color}` }}
+              />
+              <h4 className="font-display font-semibold text-white mb-2">{t.label}</h4>
+              <p className="text-slate-400 text-sm leading-relaxed">{t.desc}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );
