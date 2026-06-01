@@ -1,27 +1,30 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { Barlow_Condensed, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const barlowCondensed = Barlow_Condensed({
+  variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
+  weight: ["600", "700"],
 });
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const ibmPlexSans = IBM_Plex_Sans({
+  variable: "--font-sans",
   subsets: ["latin"],
   display: "swap",
+  weight: ["300", "400", "500", "600"],
+  style: ["normal"],
 });
 
 export const metadata: Metadata = {
   title: "R2PQ — Rotate to Post-Quantum",
   description:
-    "R2PQ scans your infrastructure for quantum-vulnerable cryptography, issues Y2Q Scores, Sovereign Receipts, and Merkle Root-verified reports — so you can rotate before it's too late.",
+    "R2PQ scans your codebase for quantum-vulnerable cryptography, issues a Y2Q Risk Score, and delivers Sovereign Receipts backed by Merkle Root verification.",
   openGraph: {
     title: "R2PQ — Rotate to Post-Quantum",
     description:
-      "Infrastructure vulnerability scanner for the post-quantum era. Y2Q Scores · Sovereign Receipts · Merkle Roots.",
+      "Post-quantum cryptography scanner. Y2Q Risk Score · Sovereign Receipts · Merkle Roots.",
     type: "website",
   },
 };
@@ -31,7 +34,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} ${spaceGrotesk.variable} antialiased`}>
+      <body className={`${barlowCondensed.variable} ${ibmPlexSans.variable} antialiased`}>
         {children}
       </body>
     </html>

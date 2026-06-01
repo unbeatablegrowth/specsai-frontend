@@ -1,16 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
-import ParticleNetwork from "./ParticleNetwork";
+import ScannerTerminal from "./ScannerTerminal";
 
-const STATS = [
-  { value: "FIPS 203–205", label: "ML-KEM · ML-DSA · SLH-DSA" },
-  { value: "Air-gapped", label: "Source never leaves your environment" },
+const CAPS = [
+  { value: "FIPS 203–205",      label: "ML-KEM · ML-DSA · SLH-DSA" },
+  { value: "Air-gapped",        label: "Source never leaves your environment" },
   { value: "Sovereign Receipt", label: "Tamper-evident audit artefact" },
-  { value: "Y2Q Risk Score", label: "Per-asset, per-algorithm rating" },
+  { value: "Y2Q Risk Score",    label: "Per-asset, per-algorithm rating" },
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 24 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
@@ -22,118 +22,161 @@ export default function HeroSection() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
     >
-      {/* Particle canvas */}
-      <ParticleNetwork />
-
-      {/* Ambient glows */}
-      <div className="glow-blob w-[700px] h-[600px] bg-cyan-500/10 -top-40 left-1/2 -translate-x-1/2" style={{ zIndex: 1 }} />
-      <div className="glow-blob w-[500px] h-[500px] bg-violet-600/10 top-1/3 -right-40" style={{ zIndex: 1 }} />
-      <div className="glow-blob w-[400px] h-[400px] bg-blue-500/8 bottom-10 -left-20" style={{ zIndex: 1 }} />
-
-      {/* Content */}
+      {/* Single whisper-level glow */}
       <div
-        className="relative z-10 max-w-5xl mx-auto px-6 text-center flex flex-col items-center"
-        style={{ paddingTop: "7rem", paddingBottom: "5rem" }}
+        className="glow-blob"
+        style={{
+          width: 800,
+          height: 500,
+          background: "rgba(14,165,233,0.035)",
+          top: -80,
+          left: "50%",
+          transform: "translateX(-50%)",
+          zIndex: 1,
+        }}
+      />
+
+      <div
+        className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 w-full"
+        style={{ paddingTop: "8rem", paddingBottom: "5rem" }}
       >
-        {/* Badge */}
-        <motion.div
-          custom={0}
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          className="inline-flex items-center gap-2 rounded-full border border-cyan-500/20 bg-cyan-500/5 px-4 py-1.5 mb-7 text-xs font-medium text-cyan-300 backdrop-blur-sm"
-        >
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse-slow" />
-          Post-Quantum Security Scanner — NIST PQC Ready
-        </motion.div>
+        {/* Two-column: text left, terminal right */}
+        <div className="grid lg:grid-cols-[1fr_460px] gap-12 lg:gap-20 items-center">
 
-        {/* Main heading */}
-        <motion.h1
-          custom={1}
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          className="font-display font-bold leading-[1.08] tracking-tight text-white"
-          style={{ fontSize: "clamp(2.6rem, 6vw, 5rem)" }}
-        >
-          Find Your Quantum
-          <br />
-          Vulnerabilities{" "}
-          <span className="gradient-text">Before They Find You</span>
-        </motion.h1>
+          {/* ── Left: copy ── */}
+          <div className="text-center lg:text-left">
+            {/* Badge */}
+            <motion.div
+              custom={0}
+              initial="hidden"
+              animate="show"
+              variants={fadeUp}
+              className="inline-flex items-center gap-2 rounded px-3.5 py-1.5 mb-8 text-xs font-medium backdrop-blur-sm"
+              style={{
+                border: "1px solid rgba(14,165,233,0.18)",
+                background: "rgba(14,165,233,0.05)",
+                color: "#7dd3fc",
+                letterSpacing: "0.02em",
+              }}
+            >
+              <span
+                className="rounded-full animate-pulse-slow"
+                style={{ width: 6, height: 6, background: "#0ea5e9", display: "inline-block" }}
+              />
+              Post-Quantum Cryptography Scanner — NIST IR 8547 Aligned
+            </motion.div>
 
-        {/* Subheading */}
-        <motion.p
-          custom={2}
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          className="mt-6 max-w-2xl text-slate-400 leading-relaxed"
-          style={{ fontSize: "clamp(1rem, 1.8vw, 1.2rem)" }}
-        >
-          R2PQ — <strong className="text-slate-300">Rotate to Post-Quantum</strong> — scans your
-          entire infrastructure for cryptographic vulnerabilities, issues a{" "}
-          <span className="text-cyan-400">Y2Q Score</span>, and delivers{" "}
-          <span className="text-violet-400">Sovereign Receipts</span> backed by{" "}
-          <span className="text-blue-400">Merkle Root</span> verification — so
-          you can act before quantum computing makes today&apos;s encryption obsolete.
-        </motion.p>
+            {/* Heading */}
+            <motion.h1
+              custom={1}
+              initial="hidden"
+              animate="show"
+              variants={fadeUp}
+              className="font-display font-bold text-white"
+              style={{
+                fontSize: "clamp(2.8rem, 5.5vw, 5rem)",
+                lineHeight: 1.06,
+                letterSpacing: "-0.01em",
+              }}
+            >
+              Find Your Quantum
+              <br />
+              Vulnerabilities{" "}
+              <span className="gradient-text">Before They Find You</span>
+            </motion.h1>
 
-        {/* CTA row */}
-        <motion.div
-          custom={3}
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          className="mt-10 flex flex-wrap items-center justify-center gap-4"
-        >
-          <a href="#contact" className="btn-primary text-base px-7 py-3.5">
-            Scan Your Infrastructure
-          </a>
-          <a href="#how-it-works" className="btn-ghost text-base px-7 py-3.5 flex items-center gap-2">
-            <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center">
-              <svg className="w-3.5 h-3.5 translate-x-0.5" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </span>
-            See How It Works
-          </a>
-        </motion.div>
+            {/* Subheading */}
+            <motion.p
+              custom={2}
+              initial="hidden"
+              animate="show"
+              variants={fadeUp}
+              className="mt-6 text-slate-400 leading-relaxed max-w-xl lg:max-w-none"
+              style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.1rem)" }}
+            >
+              R2PQ —{" "}
+              <strong className="text-slate-300 font-medium">Rotate to Post-Quantum</strong>{" "}
+              — scans your codebase for cryptographic vulnerabilities, issues a{" "}
+              <span style={{ color: "#38bdf8" }}>Y2Q Score</span>, and delivers{" "}
+              <span style={{ color: "#7dd3fc" }}>Sovereign Receipts</span> backed by{" "}
+              <span style={{ color: "#bae6fd" }}>Merkle Root</span> verification — so you
+              can act before quantum computing makes today&apos;s encryption obsolete.
+            </motion.p>
 
-        {/* Divider */}
-        <motion.div
-          custom={4}
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          className="h-line w-full max-w-lg mt-14 mb-10 mx-auto"
-        />
+            {/* CTAs */}
+            <motion.div
+              custom={3}
+              initial="hidden"
+              animate="show"
+              variants={fadeUp}
+              className="mt-9 flex flex-wrap items-center justify-center lg:justify-start gap-4"
+            >
+              <a href="#contact" className="btn-primary text-base px-7 py-3.5">
+                Scan Your Codebase
+              </a>
+              <a
+                href="#how-it-works"
+                className="btn-ghost text-base px-7 py-3.5 flex items-center gap-2.5"
+              >
+                <span
+                  className="flex items-center justify-center rounded"
+                  style={{
+                    width: 28,
+                    height: 28,
+                    background: "rgba(255,255,255,0.07)",
+                    border: "1px solid rgba(255,255,255,0.08)",
+                  }}
+                >
+                  <svg
+                    className="w-3 h-3"
+                    style={{ transform: "translateX(1px)" }}
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </span>
+                See How It Works
+              </a>
+            </motion.div>
+          </div>
 
-        {/* Stats */}
-        <motion.div
-          custom={5}
-          initial="hidden"
-          animate="show"
-          variants={fadeUp}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10"
-        >
-          {STATS.map((s) => (
-            <div key={s.label} className="text-center">
-              <div className="font-display font-bold text-2xl sm:text-3xl gradient-text">
-                {s.value}
+          {/* ── Right: terminal ── */}
+          <motion.div
+            custom={2}
+            initial="hidden"
+            animate="show"
+            variants={fadeUp}
+          >
+            <ScannerTerminal />
+          </motion.div>
+        </div>
+
+        {/* ── Full-width: divider + capability row ── */}
+        <motion.div custom={5} initial="hidden" animate="show" variants={fadeUp}>
+          <div className="h-line mt-16 mb-10" />
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10">
+            {CAPS.map((s) => (
+              <div key={s.label} className="text-center">
+                <div
+                  className="font-display font-bold gradient-text"
+                  style={{ fontSize: "clamp(1rem, 2vw, 1.3rem)" }}
+                >
+                  {s.value}
+                </div>
+                <div className="text-xs text-slate-600 mt-1.5 font-medium leading-snug">
+                  {s.label}
+                </div>
               </div>
-              <div className="text-xs sm:text-sm text-slate-500 mt-1 font-medium">
-                {s.label}
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </motion.div>
       </div>
 
       {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#050510] to-transparent z-10" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#04060f] to-transparent z-10" />
     </section>
   );
 }

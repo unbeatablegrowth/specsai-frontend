@@ -8,10 +8,9 @@ export default function CTASection() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at 50% 0%, rgba(0,212,255,0.1) 0%, rgba(139,92,246,0.07) 40%, transparent 70%)",
+            "radial-gradient(ellipse at 50% 0%, rgba(14,165,233,0.06) 0%, transparent 65%)",
         }}
       />
-      <div className="glow-blob w-[600px] h-[600px] bg-violet-600/8 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
       <div className="h-line absolute top-0 left-0 right-0" />
 
       <div className="max-w-4xl mx-auto text-center relative z-10">
@@ -21,9 +20,7 @@ export default function CTASection() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
         >
-          <span className="inline-block text-xs font-semibold tracking-widest uppercase text-cyan-400 mb-5">
-            Get Your Y2Q Score
-          </span>
+          <span className="section-index" style={{ marginBottom: "1.25rem" }}>Get Your Y2Q Score</span>
 
           <h2
             className="font-display font-bold text-white leading-tight mb-5"

@@ -15,20 +15,16 @@ const THREAT_ITEMS = [
   {
     label: "Y2Q Window Closing",
     desc: "Cryptographically-relevant quantum computers are estimated to arrive within 7–10 years. The time to prepare is now.",
-    color: "#00d4ff",
+    color: "#0ea5e9",
   },
 ];
 
 export default function MetricsSection() {
   return (
     <section id="about" className="section relative overflow-hidden">
-      <div className="glow-blob w-[700px] h-[400px] bg-cyan-600/6 -top-20 left-1/2 -translate-x-1/2 pointer-events-none" />
       <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse at 50% 50%, rgba(0,212,255,0.04) 0%, transparent 70%)",
-        }}
+        className="glow-blob"
+        style={{ width: 700, height: 400, background: "rgba(14,165,233,0.03)", top: -80, left: "50%", transform: "translateX(-50%)", pointerEvents: "none" }}
       />
 
       <div className="max-w-7xl mx-auto">
@@ -40,9 +36,7 @@ export default function MetricsSection() {
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-14"
         >
-          <span className="text-xs font-semibold tracking-widest uppercase text-cyan-400 mb-3 block">
-            The Quantum Threat Is Real
-          </span>
+          <span className="section-index">{"//01 THREAT"}</span>
           <h2
             className="font-display font-bold text-white leading-tight"
             style={{ fontSize: "clamp(2rem, 4vw, 3rem)" }}
@@ -61,7 +55,7 @@ export default function MetricsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ delay: i * 0.1, duration: 0.6 }}
-              className="glass gradient-border rounded-2xl p-6"
+              className="glass gradient-border rounded-xl p-6"
             >
               <div
                 className="w-2 h-2 rounded-full mb-4"

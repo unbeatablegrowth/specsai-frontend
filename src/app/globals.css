@@ -3,40 +3,31 @@
 @tailwind utilities;
 
 :root {
-  --primary: #00d4ff;
-  --secondary: #8b5cf6;
-  --accent: #3b82f6;
+  --accent: #0ea5e9;
 }
 
 * { box-sizing: border-box; padding: 0; margin: 0; }
 html { scroll-behavior: smooth; }
 
 body {
-  background: #050510;
+  background: #04060f;
   color: #ffffff;
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   overflow-x: hidden;
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #050510; }
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: #04060f; }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 212, 255, 0.35);
-  border-radius: 3px;
+  background: rgba(14, 165, 233, 0.2);
+  border-radius: 2px;
 }
-::-webkit-scrollbar-thumb:hover { background: rgba(0, 212, 255, 0.6); }
+::-webkit-scrollbar-thumb:hover { background: rgba(14, 165, 233, 0.4); }
 
-/* ── Gradient text ── */
+/* ── Gradient text (monochromatic sky) ── */
 .gradient-text {
-  background: linear-gradient(130deg, #00d4ff 0%, #8b5cf6 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.gradient-text-warm {
-  background: linear-gradient(130deg, #3b82f6 0%, #8b5cf6 50%, #00d4ff 100%);
+  background: linear-gradient(130deg, #38bdf8 0%, #0ea5e9 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -44,36 +35,35 @@ body {
 
 /* ── Glass card ── */
 .glass {
-  background: rgba(255, 255, 255, 0.035);
+  background: rgba(255, 255, 255, 0.022);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.055);
   transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
 }
-
 .glass:hover {
-  background: rgba(255, 255, 255, 0.055);
-  border-color: rgba(0, 212, 255, 0.22);
-  box-shadow: 0 0 32px rgba(0, 212, 255, 0.08), inset 0 0 20px rgba(0, 212, 255, 0.03);
+  background: rgba(255, 255, 255, 0.036);
+  border-color: rgba(14, 165, 233, 0.18);
+  box-shadow: 0 0 24px rgba(14, 165, 233, 0.04);
 }
 
-/* ── Gradient border card (pseudo-element trick) ── */
+/* ── Gradient border card ── */
 .gradient-border {
   position: relative;
-  background: rgba(255, 255, 255, 0.03);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.018);
+  border-radius: 12px;
 }
 .gradient-border::before {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 16px;
+  border-radius: 12px;
   padding: 1px;
   background: linear-gradient(
     130deg,
-    rgba(0, 212, 255, 0.25) 0%,
-    rgba(139, 92, 246, 0.2) 50%,
-    rgba(255, 255, 255, 0.05) 100%
+    rgba(14, 165, 233, 0.18) 0%,
+    rgba(14, 165, 233, 0.05) 60%,
+    rgba(255, 255, 255, 0.02) 100%
   );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -86,75 +76,75 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(130deg, #00d4ff 0%, #8b5cf6 100%);
+  background: #0ea5e9;
   color: #fff;
-  font-weight: 600;
-  border-radius: 9999px;
+  font-weight: 500;
+  border-radius: 5px;
   padding: 0.75rem 1.75rem;
-  font-size: 0.9rem;
-  letter-spacing: 0.01em;
-  box-shadow: 0 0 24px rgba(0, 212, 255, 0.3), 0 0 0 0 rgba(0, 212, 255, 0);
-  transition: box-shadow 0.3s, transform 0.2s;
+  font-size: 0.875rem;
+  letter-spacing: 0.03em;
+  box-shadow: 0 0 0 1px rgba(14, 165, 233, 0.3), 0 4px 16px rgba(14, 165, 233, 0.1);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
   white-space: nowrap;
 }
 .btn-primary:hover {
-  box-shadow: 0 0 40px rgba(0, 212, 255, 0.5), 0 0 80px rgba(139, 92, 246, 0.25);
-  transform: translateY(-2px);
+  background: #38bdf8;
+  box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.4), 0 4px 24px rgba(14, 165, 233, 0.16);
+  transform: translateY(-1px);
 }
 
 .btn-ghost {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255,255,255,0.85);
-  font-weight: 600;
-  border-radius: 9999px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+  border-radius: 5px;
   padding: 0.75rem 1.75rem;
-  font-size: 0.9rem;
-  letter-spacing: 0.01em;
-  border: 1px solid rgba(255,255,255,0.14);
-  background: rgba(255,255,255,0.03);
-  transition: border-color 0.3s, background 0.3s, transform 0.2s;
+  font-size: 0.875rem;
+  letter-spacing: 0.03em;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.02);
+  transition: border-color 0.2s, color 0.2s, background 0.2s, transform 0.15s;
   white-space: nowrap;
 }
 .btn-ghost:hover {
-  border-color: rgba(0, 212, 255, 0.45);
-  background: rgba(0, 212, 255, 0.07);
-  transform: translateY(-2px);
+  border-color: rgba(14, 165, 233, 0.38);
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(14, 165, 233, 0.05);
+  transform: translateY(-1px);
 }
 
-/* ── Radial glow blobs ── */
+/* ── Glow blobs ── */
 .glow-blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
+  filter: blur(110px);
   pointer-events: none;
 }
 
-/* ── Section base ── */
+/* ── Section base (generous vertical space) ── */
 .section {
   position: relative;
-  padding: 7rem 1.5rem;
+  padding: 9rem 1.5rem;
 }
-
 @media (max-width: 768px) {
-  .section { padding: 5rem 1.25rem; }
+  .section { padding: 6rem 1.25rem; }
 }
 
-/* ── Gradient line separator ── */
+/* ── Hairline separator ── */
 .h-line {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(0,212,255,0.3), rgba(139,92,246,0.3), transparent);
+  background: linear-gradient(90deg, transparent, rgba(203, 213, 225, 0.09), transparent);
 }
 
-/* ── Feature icon ring ── */
-.icon-ring {
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 212, 255, 0.08);
-  border: 1px solid rgba(0, 212, 255, 0.2);
+/* ── Section index label ── */
+.section-index {
+  display: block;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #2d3f52;
+  margin-bottom: 0.85rem;
 }

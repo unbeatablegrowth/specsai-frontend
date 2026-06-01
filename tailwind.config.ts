@@ -9,24 +9,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#00d4ff",
-        secondary: "#8b5cf6",
-        accent: "#3b82f6",
-        dark: "#050510",
+        accent: "#0ea5e9",
+        dark:   "#04060f",
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "sans-serif"],
-        display: ["var(--font-space-grotesk)", "sans-serif"],
+        sans:    ["var(--font-sans)",    "ui-sans-serif", "system-ui", "sans-serif"],
+        display: ["var(--font-display)", "ui-sans-serif", "sans-serif"],
+        mono:    ["ui-monospace", "SFMono-Regular", "Menlo", "monospace"],
       },
       animation: {
-        float: "float 8s ease-in-out infinite",
-        "pulse-slow": "pulse 4s ease-in-out infinite",
-        "spin-slow": "spin 20s linear infinite",
+        float:         "float 8s ease-in-out infinite",
+        "pulse-slow":  "pulse 4s ease-in-out infinite",
       },
       keyframes: {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
-          "50%": { transform: "translateY(-24px)" },
+          "50%":      { transform: "translateY(-20px)" },
         },
       },
     },
