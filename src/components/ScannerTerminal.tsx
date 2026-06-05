@@ -29,8 +29,8 @@ const COLOR: Record<LineType, string> = {
   info:     "#64748b",
   critical: "#f87171",
   legacy:   "#f59e0b",
-  ok:       "#38bdf8",
-  score:    "#38bdf8",
+  ok:       "#5a9ec9",
+  score:    "#5a9ec9",
   receipt:  "#94a3b8",
   done:     "#334155",
 };

@@ -1,12 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { BOOKING_URL } from "@/lib/config";
 
 const NAV_LINKS = [
-  { label: "About",        href: "#about" },
-  { label: "Features",     href: "#features" },
-  { label: "How It Works", href: "#how-it-works" },
-  { label: "Contact",      href: "#contact" },
+  { label: "How It Works", href: "/#how-it-works" },
+  { label: "Pricing",      href: "/pricing" },
+  { label: "Contact",      href: "/#contact" },
 ];
 
 export default function Navigation() {
@@ -23,14 +23,12 @@ export default function Navigation() {
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled
-          ? "backdrop-blur-2xl border-b"
-          : "bg-transparent"
+        scrolled ? "backdrop-blur-2xl border-b" : "bg-transparent"
       }`}
       style={scrolled ? {
-        background: "rgba(4,6,15,0.85)",
+        background: "rgba(4,6,15,0.88)",
         borderColor: "rgba(255,255,255,0.05)",
       } : {}}
     >
@@ -56,7 +54,7 @@ export default function Navigation() {
               {l.label}
               <span
                 className="absolute -bottom-0.5 left-0 w-0 h-px transition-[width] duration-300 group-hover:w-full"
-                style={{ background: "#0ea5e9" }}
+                style={{ background: "#3585bc" }}
               />
             </a>
           ))}
@@ -64,11 +62,11 @@ export default function Navigation() {
 
         {/* CTA */}
         <div className="hidden md:flex gap-3 items-center">
-          <a href="#contact" className="text-[0.84rem] text-slate-500 hover:text-slate-200 transition-colors">
-            Sign In
-          </a>
-          <a href="#contact" className="btn-primary text-[0.84rem] py-2 px-5">
-            Free Scan
+          <a
+            href={BOOKING_URL}
+            className="btn-primary text-[0.84rem] py-2 px-5"
+          >
+            Book Assessment
           </a>
         </div>
 
@@ -107,8 +105,8 @@ export default function Navigation() {
                 </a>
               ))}
               <div className="h-line" />
-              <a href="#contact" className="btn-primary text-center text-sm">
-                Free Scan
+              <a href={BOOKING_URL} className="btn-primary text-center text-sm">
+                Book Assessment
               </a>
             </div>
           </motion.div>

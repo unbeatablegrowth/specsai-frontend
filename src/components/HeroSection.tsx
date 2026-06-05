@@ -1,20 +1,21 @@
 "use client";
 import { motion } from "framer-motion";
 import ScannerTerminal from "./ScannerTerminal";
+import { BOOKING_URL } from "@/lib/config";
 
 const CAPS = [
-  { value: "FIPS 203–205",      label: "ML-KEM · ML-DSA · SLH-DSA" },
-  { value: "Air-gapped",        label: "Source never leaves your environment" },
-  { value: "Sovereign Receipt", label: "Tamper-evident audit artefact" },
-  { value: "Y2Q Risk Score",    label: "Per-asset, per-algorithm rating" },
+  { value: "Complete Inventory",   label: "Every algorithm catalogued" },
+  { value: "Y2Q Risk Score",       label: "Per-file, per-algorithm rating" },
+  { value: "Migration Roadmap",    label: "Prioritised by risk and deadline" },
+  { value: "Sovereign Receipt",    label: "Tamper-evident audit artefact" },
 ];
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 14 },
   show: (i: number) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.12, duration: 0.7, ease: [0.22, 1, 0.36, 1] },
+    transition: { delay: i * 0.12, duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] },
   }),
 };
 
@@ -24,13 +25,13 @@ export default function HeroSection() {
       id="hero"
       className="relative min-h-screen flex flex-col justify-center overflow-hidden"
     >
-      {/* Single whisper-level glow */}
+      {/* Whisper glow */}
       <div
         className="glow-blob"
         style={{
           width: 800,
           height: 500,
-          background: "rgba(14,165,233,0.035)",
+          background: "rgba(53,133,188,0.022)",
           top: -80,
           left: "50%",
           transform: "translateX(-50%)",
@@ -55,17 +56,17 @@ export default function HeroSection() {
               variants={fadeUp}
               className="inline-flex items-center gap-2 rounded px-3.5 py-1.5 mb-8 text-xs font-medium backdrop-blur-sm"
               style={{
-                border: "1px solid rgba(14,165,233,0.18)",
-                background: "rgba(14,165,233,0.05)",
-                color: "#7dd3fc",
+                border: "1px solid rgba(53,133,188,0.18)",
+                background: "rgba(53,133,188,0.04)",
+                color: "#7db8d8",
                 letterSpacing: "0.02em",
               }}
             >
               <span
                 className="rounded-full animate-pulse-slow"
-                style={{ width: 6, height: 6, background: "#0ea5e9", display: "inline-block" }}
+                style={{ width: 6, height: 6, background: "#3585bc", display: "inline-block" }}
               />
-              Post-Quantum Cryptography Scanner — NIST IR 8547 Aligned
+              Cryptographic Visibility + Agility — Source-Layer Detection
             </motion.div>
 
             {/* Heading */}
@@ -76,15 +77,15 @@ export default function HeroSection() {
               variants={fadeUp}
               className="font-display font-bold text-white"
               style={{
-                fontSize: "clamp(2.8rem, 5.5vw, 5rem)",
+                fontSize: "clamp(2.4rem, 4.5vw, 4.2rem)",
                 lineHeight: 1.06,
                 letterSpacing: "-0.01em",
               }}
             >
-              Find Your Quantum
+              Know Every Algorithm
               <br />
-              Vulnerabilities{" "}
-              <span className="gradient-text">Before They Find You</span>
+              in Your Codebase.{" "}
+              <span className="gradient-text">Migrate With Confidence.</span>
             </motion.h1>
 
             {/* Subheading */}
@@ -94,15 +95,16 @@ export default function HeroSection() {
               animate="show"
               variants={fadeUp}
               className="mt-6 text-slate-400 leading-relaxed max-w-xl lg:max-w-none"
-              style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.1rem)" }}
+              style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.05rem)" }}
             >
               R2PQ —{" "}
               <strong className="text-slate-300 font-medium">Rotate to Post-Quantum</strong>{" "}
-              — scans your codebase for cryptographic vulnerabilities, issues a{" "}
-              <span style={{ color: "#38bdf8" }}>Y2Q Score</span>, and delivers{" "}
-              <span style={{ color: "#7dd3fc" }}>Sovereign Receipts</span> backed by{" "}
-              <span style={{ color: "#bae6fd" }}>Merkle Root</span> verification — so you
-              can act before quantum computing makes today&apos;s encryption obsolete.
+              — gives regulated organisations complete cryptographic visibility: every
+              algorithm, every file, every dependency. You receive a{" "}
+              <span style={{ color: "#5a9ec9" }}>Y2Q Risk Score</span>, a{" "}
+              <span style={{ color: "#7db8d8" }}>prioritised migration roadmap</span>, and a{" "}
+              <span style={{ color: "#a8c8de" }}>Sovereign Receipt</span> you can show
+              your board and regulators.
             </motion.p>
 
             {/* CTAs */}
@@ -113,8 +115,8 @@ export default function HeroSection() {
               variants={fadeUp}
               className="mt-9 flex flex-wrap items-center justify-center lg:justify-start gap-4"
             >
-              <a href="#contact" className="btn-primary text-base px-7 py-3.5">
-                Scan Your Codebase
+              <a href={BOOKING_URL} className="btn-primary text-base px-7 py-3.5">
+                Book a Readiness Assessment
               </a>
               <a
                 href="#how-it-works"
@@ -162,7 +164,7 @@ export default function HeroSection() {
               <div key={s.label} className="text-center">
                 <div
                   className="font-display font-bold gradient-text"
-                  style={{ fontSize: "clamp(1rem, 2vw, 1.3rem)" }}
+                  style={{ fontSize: "clamp(0.9rem, 1.8vw, 1.15rem)" }}
                 >
                   {s.value}
                 </div>
